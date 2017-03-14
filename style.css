@@ -1,0 +1,35 @@
+
+
+
+
+#start_btn{
+   cursor: pointer;
+    color: black;
+    text-align: left;
+}
+
+
+#slow_btn{
+  cursor: pointer;
+  color: black;
+  text-align: right;
+
+}
+
+
+
+#cat {
+text-align: left;
+position: absolute;
+
+
+}
+
+#target {
+  text-align: right;
+}
+
+
+@keyframes identifier {
+
+}
