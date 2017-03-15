@@ -59,7 +59,7 @@ h1 {
 #cat_img{
   position: absolute;
   width:150px;
-  height:150px;
+  height:15=0px;
   top:250px;
   bottom: 0px;
   transition: transform .2s;

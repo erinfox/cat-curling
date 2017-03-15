@@ -3,6 +3,7 @@ jQuery(function(){
 
   let cat = $('#cat');
   let target = $('#target');
+  let target2= $('#test')
   let $startGame = $('#start_btn');
   let $slowDown = $('#slow_btn');
 
@@ -25,40 +26,61 @@ jQuery(function(){
   $startGame.click(function(){
     console.log('start');
 //http://stackoverflow.com/questions/16699330/make-a-div-move-across-the-screen
-       cat.animate({left: "+=1240"}, 2000);
+       cat.animate({left: "+=1240"}, 2000, checkCollisions);
          $slowDown.click(function() {
           console.log('slowdown');
            cat.stop();
-
          })
-  });
+
 
 // http://jsfiddle.net/ryanoc/TG2M7/
-
-function getPosition(cat){
-  let cat = $('#cat');
-  let pos = cat.position();
-  let width = cat.width();
-  let height = cat.height();
-  return [[pos.left, pos.let + width], [pos.top +pos.top + height]];
+function getPositions(box) {
+  var $box = $(box);
+  var pos = $box.position();
+  var width = $box.width();
+  var height = $box.height();
+  return [ [ pos.left, pos.left + width ], [ pos.top, pos.top + height ] ];
 }
+
 
 function comparePositions(p1, p2) {
   var x1 = p1[0] < p2[0] ? p1 : p2;
   var x2 = p1[0] < p2[0] ? p2 : p1;
-  return x1[1] > x2[0] || x1[0] === x2[0] ? true : false;
+  return x1[1] > x2[0]\ || x1[0] === x2[0] ? true : false;
 }
 
 function checkCollisions(){
-  var cat = $("#cat")[0];
-  var pos = getPositions(cat);
+  console.log("working")
+  var box = $(".test")[0];
+  var pos = getPositions(box);
+  console.log(pos)
 
   var pos2 = getPositions(this);
+  console.log(this)
   var horizontalMatch = comparePositions(pos[0], pos2[0]);
   var verticalMatch = comparePositions(pos[1], pos2[1]);
   var match = horizontalMatch && verticalMatch;
-  if (match) { $("#target").append("<p>COLLISION !!!</p>"); }
+  if (match) { console.log('home return') }
 }
+
+
+
+// let getPosition = function(){
+//   let target = $(target2);
+//   let pos = target.position();
+//   let width = target.width();
+//   let height = target.height();
+//   return [[pos.left, pos.let + width], [pos.top + pos.top + height]];
+
+// console.log(test);
+// getPosition();
+
+// }
+
+
+  });
+
+
 
 
 });
@@ -68,17 +90,15 @@ function checkCollisions(){
 
 
 
-
-
-
-
-
-
-// let checkCollision = function(){
-//   if(cat.style === target.style){
-//     alert("collision");
-//   }
+// let getPosition = function(){
+//   let cat = $('#target');
+//   let pos = target.position();
+//   let width = target.width();
+//   let height = target.height();
+//   return [[pos.left, pos.let + width], [pos.top +pos.top + height]];
+// getPosition();
 // }
+
 
 // let catPosition = $('#cat').position();
 // let targetPosition = $('#target').position();
@@ -234,5 +254,32 @@ function checkCollisions(){
 //      console.log("collision");
 //   }}}
 
+
+// http://jsfiddle.net/ryanoc/TG2M7/
+
+// function getPosition(cat){
+//   let cat = $('#cat');
+//   let pos = cat.position();
+//   let width = cat.width();
+//   let height = cat.height();
+//   return [[pos.left, pos.let + width], [pos.top +pos.top + height]];
+// }
+
+// function comparePositions(p1, p2) {
+//   var x1 = p1[0] < p2[0] ? p1 : p2;
+//   var x2 = p1[0] < p2[0] ? p2 : p1;
+//   return x1[1] > x2[0] || x1[0] === x2[0] ? true : false;
+// }
+
+// function checkCollisions(){
+//   var cat = $("#cat")[0];
+//   var pos = getPositions(cat);
+
+//   var pos2 = getPositions(this);
+//   var horizontalMatch = comparePositions(pos[0], pos2[0]);
+//   var verticalMatch = comparePositions(pos[1], pos2[1]);
+//   var match = horizontalMatch && verticalMatch;
+//   if (match) { $("#target").append("<p>COLLISION !!!</p>"); }
+// }
 
 
