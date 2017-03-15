@@ -1,6 +1,14 @@
+#container {
+  position: absolute;
+  height: 690px;
+  width: 1400px;
+  overflow: hidden;
+  border: 1px solid black;
+}
 
 h1 {
   text-align: center;
+
 }
 
 #start_btn{
@@ -11,7 +19,7 @@ h1 {
     background-color: blue;
     position: absolute;
     padding: 6px;
-    margin:-20px auto;
+    margin:30px 30px 30px 30px;
 
 }
 
@@ -23,38 +31,39 @@ h1 {
   background-color:red;
   position: absolute;
   padding: 6px;
-  margin-top: 40px;
+  margin: 75px 30px 30px 30px;
 }
 
 #target {
   position: absolute;
- margin-left: 75%;
-   top:150px;
+  left: 850px;
+  top:100px;
 }
 
 #target_img{
   position: absolute;
   width:300px;
   height:300px;
-  top:100px;
+  top:200px;
+  bottom:0px;
 }
 
 #cat {
-text-align: left;
-position: absolute;
-background-color: white;
+  text-align: left;
+  position: absolute;
+  background-color: white;
+  left:0px;
 
 }
 
 #cat_img{
   position: absolute;
-  width:200px;
-  height:200px;
-  top:150px;
+  width:150px;
+  height:150px;
+  top:250px;
+  bottom: 0px;
   transition: transform .2s;
-
-
-
+}
 
 
 

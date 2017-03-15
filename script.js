@@ -25,21 +25,43 @@ jQuery(function(){
   $startGame.click(function(){
     console.log('start');
 //http://stackoverflow.com/questions/16699330/make-a-div-move-across-the-screen
-       cat.animate({left: "+=1350"}, 2000);
-//i think this needs to be a loop -?
+       cat.animate({left: "+=1240"}, 2000);
          $slowDown.click(function() {
           console.log('slowdown');
            cat.stop();
-               $slowDown.click(function(){
-                cat.animate({left: "+=1350"}, 5000);
 
+         })
+  });
 
-                                           })
-                                       })
+// http://jsfiddle.net/ryanoc/TG2M7/
+
+function getPosition(cat){
+  let cat = $('#cat');
+  let pos = cat.position();
+  let width = cat.width();
+  let height = cat.height();
+  return [[pos.left, pos.let + width], [pos.top +pos.top + height]];
+}
+
+function comparePositions(p1, p2) {
+  var x1 = p1[0] < p2[0] ? p1 : p2;
+  var x2 = p1[0] < p2[0] ? p2 : p1;
+  return x1[1] > x2[0] || x1[0] === x2[0] ? true : false;
+}
+
+function checkCollisions(){
+  var cat = $("#cat")[0];
+  var pos = getPositions(cat);
+
+  var pos2 = getPositions(this);
+  var horizontalMatch = comparePositions(pos[0], pos2[0]);
+  var verticalMatch = comparePositions(pos[1], pos2[1]);
+  var match = horizontalMatch && verticalMatch;
+  if (match) { $("#target").append("<p>COLLISION !!!</p>"); }
+}
 
 
 });
-});
 
 
 
@@ -50,6 +72,47 @@ jQuery(function(){
 
 
 
+
+
+// let checkCollision = function(){
+//   if(cat.style === target.style){
+//     alert("collision");
+//   }
+// }
+
+// let catPosition = $('#cat').position();
+// let targetPosition = $('#target').position();
+// let widthCat = $('#cat').width();
+// let widthTarget = $('#target').width();
+// let heightCat = $('#cat').height();
+// let heightTarget = $('#target').height();
+
+// let catPosition = cat.getBoundingClientRect();
+// console.log(catPosition.top, catPosition.right, catPosition.bottom, catPosition.left);
+// let targetPosition = target.getBoundingClientRect();
+
+// if (catPosition === targetPosition) {
+//   alert('collision detected')
+// }
+
+
+
+// https://gist.github.com/jtsternberg/c272d7de5b967cec2d3d
+// let colliding = function(cat,target){
+//   let catOffset = cat.offset();
+//   var catHeight = cat.outerHeight( true );
+//   var catWidth = cat.outerWidth( true );
+//   var catTop  = cat.top + catHeight;
+//   var catLeft = cat.left + catWidth;
+
+//   var targetOffset = target.offset();
+//   var targetHeight = target.outerHeight( true );
+//   var targetWidth = target.outerWidth( true );
+//   var targetTop = targetOffset.top + targetHeight;
+//   var targetLeft= targetOffset.left + targetWidth;
+// }
+
+// colliding();
 
 
 //   let target_left = 400;
@@ -162,16 +225,14 @@ jQuery(function(){
 
 
 // collisionDetection = function(){
-// if(cat === target) {
+// if(cat.position === target.position) {
 // let dx = cat.x - target.x;
 // let dy = cat.y - target.y;
 // let distance = Math.sqrt(dx * dx + dy * dy);
 // if (distance < cat.size + target.size) {
 //     // alert("collision");
 //      console.log("collision");
-//   }
-//   }
-//   }
+//   }}}
 
 
 
