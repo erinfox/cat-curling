@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        #target{
+      position: absolute;
+      left: 300px;
+      top: 60px;
+    }
+    #cat{
+      position:absolute;
+      top:60px;
+      left:0px;
+    }
+    </style>
+    </head>
+    <body>
+      <h1>Press any key to move the cat</h1>
+      <img id="cat" src="http://freepngimages.com/wp-content/uploads/2016/10/grey-cat-sitting-transparent-background-image.png" width="100px" height="100px"/>
+      <img id="target" src="https://img.clipartfest.com/157c865dd6623822f8548f6a838cb715_big-image-png-target-clipart-png_2401-2400.png" height="200px" width="200px"/>
+    </body>
+    <script>
+    let cat = document.getElementById('cat');
+  let target_left = 300;
+  let catleft = 0;
+
+
+    window.addEventListener('keypress',function(){
+      catleft +=50;
+      checkCollision();
+    });
+    function checkCollision(){
+      cat.style.left = catleft + 'px';
+      console.log(cat.style.left);
+      if(cat.style.left === target_left + 'px'){
+        alert('collision!!!');
+      }
+    }
+
+
+    </script>
+</html>

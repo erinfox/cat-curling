@@ -1,8 +1,24 @@
 Game Goal = launch the cat and slow the cat speed down so it lands on the target
-Landing on the target = winner
+Landing on the target = YOU WIN
+Not landing on the target = TRY AGAIN
 
+
+-Show the rules accross the screen in a window-
 1. Click start button
 2. Cat will launch straight across the screen toward the target at one quick speed
 3. Slow the cat speed down by clicking the sweep/slow button
 4. once landing the stopped cat on the target, YOU WIN.
 5. If the cat is not on the target, TRY AGAIN.
+
+
+
+
+HELP
+
+make the SLOW DOWN button decrease speed amount everytime it's clicked until it's stopped
+make collision detection work when cat is stoped over the target
+git rid of scroll bar / make cnavas
+
+
+
+

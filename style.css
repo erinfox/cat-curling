@@ -1,15 +1,29 @@
 
+h1 {
+  text-align: center;
+}
+
 #start_btn{
    cursor: pointer;
     color: black;
     text-align: left;
+    border-radius: 5px;
+    background-color: blue;
+    position: absolute;
+    padding: 6px;
+    margin:-20px auto;
+
 }
 
 #slow_btn{
   cursor: pointer;
   color: black;
   text-align: left;
-
+  border-radius: 5px;
+  background-color:red;
+  position: absolute;
+  padding: 6px;
+  margin-top: 40px;
 }
 
 #target {
@@ -39,10 +53,9 @@ background-color: white;
   top:150px;
   transition: transform .2s;
 
-}
 
 
 
-@keyframes identifier {
 
-}
+
+
