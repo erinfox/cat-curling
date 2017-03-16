@@ -11,6 +11,22 @@ h1 {
 
 }
 
+#HIT {
+  font-size: 50px;
+  color:red;
+  text-align: center;
+  top:20px;
+  margin:5px 30px 30px 30px;
+  animation:blinker 1s linear infinite;
+}
+
+#score_board{
+  cursor: pointer;
+  text-align: center;
+  margin:20px 30px 30px 30px;
+  border-radius: 5px;
+}
+
 #start_btn{
    cursor: pointer;
     color: black;
@@ -33,21 +49,27 @@ h1 {
   padding: 6px;
   margin: 75px 30px 30px 30px;
 }
-
 #target {
   position: absolute;
-  left: 850px;
-  top:100px;
+  left:850px;
+  top:300px;
+  bottom:0px;
+}
+#target #target_img{
+
+  width:250px;
+  height:250px;
+
 }
 
-#target_img{
+/*#target_img{
   position: absolute;
   width:300px;
   height:300px;
   top:200px;
   bottom:0px;
 }
-
+*/
 #cat {
   text-align: left;
   position: absolute;
@@ -60,11 +82,13 @@ h1 {
   position: absolute;
   width:150px;
   height:15=0px;
-  top:250px;
+  top:290px;
   bottom: 0px;
   transition: transform .2s;
 }
 
-
+@keyframes blinker{
+  50%{opacity: 0;}
+}
 
 
