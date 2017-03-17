@@ -1,49 +1,84 @@
 
 jQuery(function(){
 
-  let cat = $('#cat');
+  let cat1 = $('#cat1');
+  let cat2 = $('#cat2');
+  let cat3 = $('#cat3');
   let targetImage = $('#target_img');
   let target = $('#target');
   let startBtn = $('#start_btn');
   let slowDownBtn = $('#slow_btn');
-  let catImage = $('#cat_img');
+  let catImage = $('#cat_img1');
 
 
-  let differentCats = [
-    ['crazyBabyCat','images/crazyBabyCat.png'],
-    ['orangeCat','images/orangeCat.png'],
-    ['sullyCat','images/sullyCat.png'],
-    ['whatCat','images/whatCat.png']
-  ];
+  // let differentCats = [
+  //   ['crazyBabyCat','images/crazyBabyCat.png'],
+  //   ['orangeCat','images/orangeCat.png'],
+  //   ['whatCat','images/whatCat.png']
+  // ];
 
-  let newCat = function(){
-    catImage.attr('src', differentCats[Math.floor(Math.random() * differentCats.length)][1]);
-  }
+ // function newCatPhoto(){
+ //    catImage.attr('src', differentCats[Math.floor(Math.random() * differentCats.length)][1]);
+ //  }
 
-  newCat();
+ //  newCatPhoto();
 
-  startBtn.click(function(){
-    console.log('start');
+  let otherCats = [cat2, cat3]
+  let score = 0
+
+function startGame() {
+
+   startBtn.click(function(){
+
+// console.log('start');
 //http://stackoverflow.com/questions/16699330/make-a-div-move-across-the-screen
-       cat.animate({left: "+=1240"}, 1500);
+       cat1.animate({left: "+=1240"}, 1500);
        slowDownBtn.click(function() {
-          console.log('slowdown');
-          cat.stop();
+            console.log('slowdown');
+          cat1.stop();
+
           let collision = checkCollision(catImage, targetImage);
-          console.log(collision);
+            console.log(collision);
 
           if(collision){
             $('#HIT').text('HIT!')
             setTimeout(function(){
               $('#HIT').remove();
-            }, 2000)
+            }, 2400)
+              score++
+              $('#score_board').text("SCORE: " + score)
+          }else if (!collision) {
+                $('#MISS').text('MISS')
+                 setTimeout(function(){
+                  $('#MISS').remove();
+            }, 2400)
+          }});
+
+   });
+}
+
+startGame();
+
+catArray = [cat1, cat2, cat3]
+  let nextCat = function(){
+  $('#next_cat_btn').click(function(){
+
+   startGame();
+  })
+  }
+
+//shows invisible cats
+$('#next_cat_btn').on('click', function(event) {
+  /* Act on the event */
+  otherCats[0].css("visibility", "visible");
+  otherCats.shift()
+});
 
 
-            console.log("COLLISION DETECTION IS WORKING, FINALLY.")
-          }
-        });
 
-  });
+
+
+
 
 //COLLISION DETECTION
  let checkCollision = function(cat, target){
@@ -66,6 +101,8 @@ jQuery(function(){
       return false;
     }
   }
+
+
 
 });
 

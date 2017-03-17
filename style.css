@@ -8,15 +8,25 @@
 
 h1 {
   text-align: center;
+  font-size: 500;
 
 }
 
 #HIT {
-  font-size: 50px;
-  color:red;
-  text-align: center;
+  font-size: 110px;
+  color:blue;
+  text-align: right;
   top:20px;
-  margin:5px 30px 30px 30px;
+  margin:15px 30px 30px 30px;
+  animation:blinker 1s linear infinite;
+}
+
+#MISS {
+  font-size: 110px;
+  color:red;
+  text-align: right;
+  top:20px;
+  margin:15px 30px 30px 30px;
   animation:blinker 1s linear infinite;
 }
 
@@ -49,6 +59,18 @@ h1 {
   padding: 6px;
   margin: 75px 30px 30px 30px;
 }
+
+#next_cat_btn{
+  cursor: pointer;
+  color: black;
+  text-align: left;
+  border-radius: 5px;
+  position: absolute;
+  padding: 6px;
+  margin: 130px 30px 30px 30px;
+}
+
+
 #target {
   position: absolute;
   left:850px;
@@ -70,7 +92,7 @@ h1 {
   bottom:0px;
 }
 */
-#cat {
+#cat1{
   text-align: left;
   position: absolute;
   background-color: white;
@@ -78,14 +100,50 @@ h1 {
 
 }
 
-#cat_img{
+#cat_img1{
   position: absolute;
   width:150px;
-  height:15=0px;
-  top:290px;
+  height:150px;
+  top:250px;
   bottom: 0px;
   transition: transform .2s;
 }
+
+#cat2{
+  text-align: left;
+  position: absolute;
+  background-color: white;
+  left:0px;
+  visibility: hidden;
+}
+
+#cat_img2{
+  position: absolute;
+  width:150px;
+  height:150px;
+  top:250px;
+  bottom: 0px;
+  transition: transform .2s;
+}
+
+#cat3{
+  text-align: left;
+  position: absolute;
+  background-color: white;
+  left:0px;
+  visibility: hidden;
+
+}
+
+#cat_img3{
+  position: absolute;
+  width:150px;
+  height:150px;
+  top:250px;
+  bottom: 0px;
+  transition: transform .2s;
+}
+
 
 @keyframes blinker{
   50%{opacity: 0;}
