@@ -9,78 +9,142 @@ jQuery(function(){
   let startBtn = $('#start_btn');
   let slowDownBtn = $('#slow_btn');
   let catImage = $('#cat_img1');
+  let catImage2 = $('#cat_img2');
+  let catImage3= $('#cat_img3');
 
-
-  // let differentCats = [
-  //   ['crazyBabyCat','images/crazyBabyCat.png'],
-  //   ['orangeCat','images/orangeCat.png'],
-  //   ['whatCat','images/whatCat.png']
-  // ];
-
- // function newCatPhoto(){
- //    catImage.attr('src', differentCats[Math.floor(Math.random() * differentCats.length)][1]);
- //  }
-
- //  newCatPhoto();
-
-  let otherCats = [cat2, cat3]
+  let otherCat = [cat2, cat3]
   let score = 0
 
-function startGame() {
+$('#next_cat_btn').click(function() {
+  startBtn.show();
+  slowDownBtn.show();
+  otherCat[0].css("visibility", "visible");
+   otherCat.shift()
+})
 
-   startBtn.click(function(){
+let catCount = 0
 
+
+startBtn.click(function(){
+//stacey's help
+  catCount ++;
 // console.log('start');
 //http://stackoverflow.com/questions/16699330/make-a-div-move-across-the-screen
+  if (catCount === 1) {
        cat1.animate({left: "+=1240"}, 1500);
        slowDownBtn.click(function() {
-            console.log('slowdown');
+        //this event listener was still calling even though the if statement it is contained in was not true. Adding another if statement made it work
+        if(catCount===1){
+          console.log('slowdown');
           cat1.stop();
+
 
           let collision = checkCollision(catImage, targetImage);
             console.log(collision);
-
           if(collision){
             $('#HIT').text('HIT!')
             setTimeout(function(){
-              $('#HIT').remove();
+              $('#HIT').hide();
             }, 2400)
-              score++
+            console.log(score)
+              score += 1
+              console.log(score)
               $('#score_board').text("SCORE: " + score)
           }else if (!collision) {
                 $('#MISS').text('MISS')
                  setTimeout(function(){
-                  $('#MISS').remove();
+                  $('#MISS').hide();
             }, 2400)
-          }});
+          }
+        }
+          startBtn.hide();
+          slowDownBtn.hide();
 
-   });
+
+            });
+
+   }
+   else if(catCount === 2) {
+
+
+       cat2.animate({left: "+=1240"}, 1500);
+       slowDownBtn.click(function() {
+        if(catCount === 2){
+            console.log('slowdown');
+          cat2.stop();
+
+          let collision2 = checkCollision(catImage2, targetImage);
+            console.log(collision2);
+
+          if(collision2){
+            $('#HIT').show()
+            $('#HIT').text('HIT!')
+            setTimeout(function(){
+              $('#HIT').hide();
+            }, 2400)
+              console.log(score)
+              score +=1
+              console.log(score)
+            $('#score_board').text("SCORE: " + score)
+          }else if (!collision2) {
+            $('#MISS').show()
+            $('#MISS').text('MISS')
+            setTimeout(function(){
+            $('#MISS').hide();
+            }, 2400)
+          }}});
+
+
+    } else if(catCount ===3){
+         cat3.animate({left: "+=1240"}, 1500);
+       slowDownBtn.click(function() {
+        if(catCount === 3){
+            console.log('slowdown');
+          cat3.stop();
+
+          let collision3 = checkCollision(catImage3, targetImage);
+            console.log(collision3);
+
+          if(collision3){
+            $('#HIT').show()
+            $('#HIT').text('HIT!')
+            setTimeout(function(){
+              $('#HIT').hide();
+            }, 2400)
+              console.log(score)
+              score +=1
+              console.log(score)
+            $('#score_board').text("SCORE: " + score)
+
+
+
+          }else if (!collision3) {
+            $('#MISS').show()
+            $('#MISS').text('MISS')
+            setTimeout(function(){
+            $('#MISS').hide();
+            }, 2400)
+          }}});
+
+       endOfGamePause()
+
+    }
+
+ }); //end of function
+
+let endOfGame = function() {
+  if (score === 3){
+    alert('YOU WON!!!!!!')
+         }else if(score !== 3){
+    alert("YOU LOOOOOSEEEEE")
+     }
 }
 
-startGame();
+let endOfGamePause = function() {
+  setTimeout(endOfGame, 1000)
+}
 
-catArray = [cat1, cat2, cat3]
-  let nextCat = function(){
-  $('#next_cat_btn').click(function(){
-
-   startGame();
-  })
-  }
-
-//shows invisible cats
-$('#next_cat_btn').on('click', function(event) {
-  /* Act on the event */
-  otherCats[0].css("visibility", "visible");
-  otherCats.shift()
-});
-
-
-
-
-
-
-
-//COLLISION DETECTION
+//COLLISION DETECTION WITH BRYAN
  let checkCollision = function(cat, target){
     // Determine the x coordinate of obj1
     cat_position = cat.offset();
@@ -101,6 +165,9 @@ $('#next_cat_btn').on('click', function(event) {
       return false;
     }
   }
+
+
+
 
 
 

@@ -14,10 +14,30 @@ Not landing on the target = TRY AGAIN
 
 
 HELP
+make collision detection work when cat(div) is stopped over the target(div)
+rectangle into a square
+if this occurs..... "HIT! YOUR WON"
 
-make the SLOW DOWN button decrease speed amount everytime it's clicked until it's stopped
-make collision detection work when cat is stoped over the target
-git rid of scroll bar / make cnavas
+3/17 HELP
+once cat1 has been played, click next cat
+launch cat 2
+add score
+*repeat for 3rd cat
+3 score points = winner
+alert = YOU WON
+
+
+
+Cat Curling Instructions
+
+OBJECTIVE: Get all 3 cats to land on the target.
+Each target hit is equal to 1 score point.
+3 points = winner!
+
+1. START = Throw the cat towards the target (aka "house" in real curling)
+2. SLOW DOWN = Stops you cat (aka the "sweep" in real curling)
+3. NEXT CAT = Allows the next cat to appear. There are 3 cats total.
+
 
 
 
