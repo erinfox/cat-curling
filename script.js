@@ -12,6 +12,9 @@ jQuery(function(){
   let catImage2 = $('#cat_img2');
   let catImage3= $('#cat_img3');
 
+//http://stackoverflow.com/questions/29884654/button-that-refresh-page-on-click
+//refresh button
+
   let otherCat = [cat2, cat3]
   let score = 0
 

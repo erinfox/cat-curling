@@ -12,6 +12,22 @@ h1 {
   font-size: 60px;
 }
 
+
+ul{
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  font-size: 12px;
+   list-style-type: none;
+
+}
+
+span{
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
 #HIT {
   position: relative;
   font-size: 100px;

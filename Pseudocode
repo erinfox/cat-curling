@@ -13,7 +13,7 @@ Not landing on the target = TRY AGAIN
 
 
 
-HELP
+3/16
 make collision detection work when cat(div) is stopped over the target(div)
 rectangle into a square
 if this occurs..... "HIT! YOUR WON"
@@ -27,6 +27,11 @@ add score
 alert = YOU WON
 
 
+3/18
+display instriuctions
+make gray lines on ice
+fix hit/miss display
+
 
 Cat Curling Instructions
 
@@ -34,9 +39,10 @@ OBJECTIVE: Get all 3 cats to land on the target.
 Each target hit is equal to 1 score point.
 3 points = winner!
 
-1. START = Throw the cat towards the target (aka "house" in real curling)
-2. SLOW DOWN = Stops you cat (aka the "sweep" in real curling)
+1. START = Slides the cat towards the target
+2. SLOW DOWN = Stops the cat
 3. NEXT CAT = Allows the next cat to appear. There are 3 cats total.
+4. 3 cats stopped on the target = 3 points aka WINNER!
 
 
 
