@@ -22,10 +22,11 @@ $('#next_cat_btn').click(function() {
   startBtn.show();
   slowDownBtn.show();
   otherCat[0].css("visibility", "visible");
-   otherCat.shift()
+  otherCat.shift()
 })
 
 let catCount = 0
+
 
 
 startBtn.click(function(){
@@ -36,12 +37,11 @@ startBtn.click(function(){
   if (catCount === 1) {
        cat1.animate({left: "+=1240"}, 1500);
        slowDownBtn.click(function() {
-        //this event listener was still calling even though the if statement it is contained in was not true. Adding another if statement made it work
-        if(catCount===1){
+        //this event listener was still calling... Adding another if statement makes it work
+  if(catCount===1){
           console.log('slowdown');
           cat1.stop();
-
-
+//collision check
           let collision = checkCollision(catImage, targetImage);
             console.log(collision);
           if(collision){
@@ -62,17 +62,16 @@ startBtn.click(function(){
         }
           startBtn.hide();
           slowDownBtn.hide();
-
-
             });
+
+
 
    }
    else if(catCount === 2) {
 
-
        cat2.animate({left: "+=1240"}, 1500);
        slowDownBtn.click(function() {
-        if(catCount === 2){
+   if(catCount === 2){
             console.log('slowdown');
           cat2.stop();
 
@@ -98,10 +97,13 @@ startBtn.click(function(){
           }}});
 
 
-    } else if(catCount ===3){
+
+
+  } else if(catCount ===3){
+
          cat3.animate({left: "+=1240"}, 1500);
-       slowDownBtn.click(function() {
-        if(catCount === 3){
+         slowDownBtn.click(function() {
+    if(catCount === 3){
             console.log('slowdown');
           cat3.stop();
 
@@ -119,8 +121,6 @@ startBtn.click(function(){
               console.log(score)
             $('#score_board').text("SCORE: " + score)
 
-
-
           }else if (!collision3) {
             $('#MISS').show()
             $('#MISS').text('MISS')
@@ -129,7 +129,7 @@ startBtn.click(function(){
             }, 2400)
           }}});
 
-       endOfGamePause()
+       endOfGamePause();
 
     }
 
@@ -168,11 +168,6 @@ let endOfGamePause = function() {
       return false;
     }
   }
-
-
-
-
-
 
 });
 
