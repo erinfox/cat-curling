@@ -1,6 +1,7 @@
 
 jQuery(function(){
 
+//declaring variable with jquery
   let cat1 = $('#cat1');
   let cat2 = $('#cat2');
   let cat3 = $('#cat3');
@@ -15,9 +16,11 @@ jQuery(function(){
 //http://stackoverflow.com/questions/29884654/button-that-refresh-page-on-click
 //refresh button
 
+//
   let otherCat = [cat2, cat3]
   let score = 0
 
+//button function that will show the next cat to launch
 $('#next_cat_btn').click(function() {
   startBtn.show();
   slowDownBtn.show();
@@ -25,14 +28,13 @@ $('#next_cat_btn').click(function() {
   otherCat.shift()
 })
 
+//counts the number of cats for score
 let catCount = 0
 
 
-
+//when the start button is clicked, 1 is added to the catCount. When the catCount is equal to 1, animate the first cat left, x distance, at y speed. When the slowDownBtn is clicked, stop cat1. Check collision detection. If catImage & targetImage collied, show the text HIT. If a hit is made, add 1 point to the score on the score board. If not a collision, flash miss. These are set on a timmer to show a certain amount of time after collision/no collision. While a cat is launched, the startBtn and slowDownBtn are hidden from the player.
 startBtn.click(function(){
-//stacey's help
   catCount ++;
-// console.log('start');
 //http://stackoverflow.com/questions/16699330/make-a-div-move-across-the-screen
   if (catCount === 1) {
        cat1.animate({left: "+=1240"}, 1500);
@@ -43,7 +45,7 @@ startBtn.click(function(){
           cat1.stop();
 //collision check
           let collision = checkCollision(catImage, targetImage);
-            console.log(collision);
+            // console.log(collision);
           if(collision){
             $('#HIT').text('HIT!')
             setTimeout(function(){
@@ -67,6 +69,7 @@ startBtn.click(function(){
 
 
    }
+   //when the catCount is 2 aka on the 2nd cat launch,
    else if(catCount === 2) {
 
        cat2.animate({left: "+=1240"}, 1500);
@@ -97,7 +100,7 @@ startBtn.click(function(){
           }}});
 
 
-
+//if catCount is equal to 3, then perform the same functions as above.
 
   } else if(catCount ===3){
 
@@ -135,6 +138,7 @@ startBtn.click(function(){
 
  }); //end of function
 
+//when 3 cats hit collision, and the score is 3, then you win, if not, you loose.
 let endOfGame = function() {
   if (score === 3){
     alert('YOU WON!!!!!!')
@@ -143,11 +147,15 @@ let endOfGame = function() {
      }
 }
 
+//this allows for a brief pause after all 3 cats have been launched
 let endOfGamePause = function() {
   setTimeout(endOfGame, 1000)
 }
 
+
+
 //COLLISION DETECTION WITH BRYAN
+//.offset find the x-axis
  let checkCollision = function(cat, target){
     // Determine the x coordinate of obj1
     cat_position = cat.offset();
@@ -160,7 +168,7 @@ let endOfGamePause = function() {
     // Determine the widths
     cat_width = cat.width();
     target_width = target.width();
-
+//&& means
     if(cat_x + cat_width > target_x &&
       target_x + target_width > cat_x){
       return true
